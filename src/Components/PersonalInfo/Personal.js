@@ -5,10 +5,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDeleteEmergencyMutation } from '../../features/api/studentApi';
-import EditPersonalModal from '../editModal/EditPersonalModal';
-import EmEditModal from '../editModal/EmEditModal';
 import DeleteConfirmation from '../Shared/DeleteConfirmation';
 import Loading from '../Shared/Loading';
+import EditPersonalModal from '../editModal/EditPersonalModal';
+import EmEditModal from '../editModal/EmEditModal';
 
 const Personal = ({ personal, others }) => {
     const [emDeleteModal, setEmDelete] = useState('');
@@ -48,7 +48,7 @@ const Personal = ({ personal, others }) => {
                             <ListGroup.Item>Employmental Status : {personal?.employmentStatus}</ListGroup.Item>
                             <ListGroup.Item><Button onClick={()=>setPersonalEditModal(personal)} variant='info' size='sm'>Edit</Button></ListGroup.Item>
                         </ListGroup>
-                    </div> : <div><Link className='btn btn-primary' to="/student/add/personal">Add Personal Details</Link></div>
+                    </div> : <div><Link className='btn btn-primary' to="/bimtian/add/personal">Add Personal Details</Link></div>
                 }
                 <div>
                     <div>
@@ -65,7 +65,7 @@ const Personal = ({ personal, others }) => {
                             </ListGroup>)
                         }
                     </div>
-                    <div><Link className='btn btn-primary mt-2' to="/student/add/emergency">Add {others?.length > 0 ? 'More' : ''} Emergency Contact Info</Link></div>
+                    <div><Link className='btn btn-primary mt-2' to="/bimtian/add/emergency">Add {others?.length > 0 ? 'More' : ''} Emergency Contact Info</Link></div>
                     <DeleteConfirmation
                         data={emDeleteModal}
                         setDelete={setEmDelete}

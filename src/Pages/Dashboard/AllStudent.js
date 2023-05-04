@@ -163,13 +163,13 @@ const AllStudent = () => {
                                     <td>{student?.role}</td>
                                     <td>{student?.status}</td>
                                     <td>{
-                                        loggedInStudent?.id !== student?.id && student?.role === 'user' ? <Button onClick={() => setModalOpen({ data: { role: 'moderator' }, id: student?.id })} variant='warning' size='sm'>Make Moderator</Button> : student?.role !== 'admin' && <Button variant='secondary' onClick={() => setModalOpen({ data: { role: 'user' }, id: student?.id })} size='sm'>Make User</Button>
+                                        loggedInStudent?.id !== student?.id && student?.role === 'user' ? <Button disabled={student?.status !== "active"} onClick={() => setModalOpen({ data: { role: 'moderator' }, id: student?.id })} variant='warning' size='sm'>Make Moderator</Button> : student?.role !== 'admin' && <Button variant='secondary' onClick={() => setModalOpen({ data: { role: 'user' }, id: student?.id })} size='sm'>Make User</Button>
                                     }</td>
                                     <td>{
-                                        student?.role !== 'admin' && loggedInStudent?.id !== student?.id ? student?.status === 'active' ? <Button onClick={() => setModalOpen({ data: { status: 'pending' }, id: student?.id })} variant='primary' size='sm'>Make Pending</Button> : <Button variant='secondary' onClick={() => setModalOpen({ data: { status: 'active' }, id: student?.id })} size='sm'>Make Active</Button> : ''
+                                        student?.role !== 'admin' && loggedInStudent?.id !== student?.id ? student?.status === 'active' ? <Button disabled={student?.role === 'moderator'} onClick={() => setModalOpen({ data: { status: 'pending' }, id: student?.id })} variant='primary' size='sm'>Make Pending</Button> : <Button variant='secondary' onClick={() => setModalOpen({ data: { status: 'active' }, id: student?.id })} size='sm'>Make Active</Button> : ''
                                     }</td>
                                     <td>
-                                        {student?.role !== 'admin' && <Button variant='danger' onClick={() => setDeleteModalOpen(student?.id)} size='sm'>Delete</Button>}
+                                        {student?.role !== 'admin' && <Button disabled={student?.role === 'moderator'} variant='danger' onClick={() => setDeleteModalOpen(student?.id)} size='sm'>Delete</Button>}
                                     </td>
                                 </tr>)
                             }

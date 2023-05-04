@@ -29,7 +29,7 @@ const Profile = () => {
             refetch()
         }
     }
-    if (isLoading||idLoading) {
+    if (isLoading || idLoading) {
         return <Loading />
     }
     if (isError) {
@@ -66,7 +66,7 @@ const Profile = () => {
             <section className='d-flex flex-column gap-2 mt-2'>
                 <div>
                     {
-                        singleStudent?.employment_info ? <EmploymentInfo details={singleStudent?.employment_info} loggedInStudent={loggedInStudent} /> : <Link className='btn btn-primary' to="/student/add/employment">Add Employment Details</Link>
+                        singleStudent?.employment_info ? <EmploymentInfo details={singleStudent?.employment_info} loggedInStudent={loggedInStudent} /> : <Link className='btn btn-primary' to="/bimtian/add/employment">Add Employment Details</Link>
                     }
                 </div>
                 <div>
@@ -78,10 +78,10 @@ const Profile = () => {
             </section>
             {photoEditModal && <EditPhotoModal show={photoEditModal} onHide={() => setPhotoEditModal(false)} />}
             {basicEditModalOpen && <BasicEditModal
-                 loggedinstudent={loggedInStudent} 
-                 show={basicEditModalOpen} 
-                 student={singleStudent} 
-                 onHide={() => setBasicEditModal(false)}
+                loggedinstudent={loggedInStudent}
+                show={basicEditModalOpen}
+                student={singleStudent}
+                onHide={() => setBasicEditModal(false)}
             />}
         </div>
     );

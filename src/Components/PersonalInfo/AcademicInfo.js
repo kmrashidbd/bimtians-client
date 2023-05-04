@@ -5,8 +5,8 @@ import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDeleteAcademicMutation } from '../../features/api/studentApi';
-import EditAcademicModal from '../editModal/EditAcademicModal';
 import DeleteConfirmation from '../Shared/DeleteConfirmation';
+import EditAcademicModal from '../editModal/EditAcademicModal';
 
 const AcademicInfo = ({ details }) => {
     const [deleteConfirmationId, setDeleteConfirmation] = useState('');
@@ -52,7 +52,7 @@ const AcademicInfo = ({ details }) => {
                     </tbody>
                 </Table>
                 {
-                    details?.length < 2 && <Link className='btn btn-secondary' to='/student/add/academic'>Add More Course</Link>
+                    details?.length < 2 && <Link className='btn btn-secondary' to='/bimtian/add/academic'>Add More Course</Link>
                 }
             </Card.Body>
             <DeleteConfirmation

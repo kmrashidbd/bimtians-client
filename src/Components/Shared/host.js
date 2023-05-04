@@ -1,4 +1,4 @@
-export const host = 'http://localhost:4000'
+export const host = 'https://new.bimtian.org'
 
 // https://backend.bimtian.org
 //https://new.bimtian.org

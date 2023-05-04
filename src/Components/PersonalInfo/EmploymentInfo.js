@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/esm/Button';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/esm/Button';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDeleteEmploymentMutation } from '../../features/api/studentApi';
-import EditEmploymentModal from '../editModal/EditEmploymentModal';
 import DeleteConfirmation from '../Shared/DeleteConfirmation';
+import EditEmploymentModal from '../editModal/EditEmploymentModal';
 
 const EmploymentInfo = ({ details }) => {
     const [employmentEditModal, setModalOpen] = useState({});
@@ -56,7 +56,7 @@ const EmploymentInfo = ({ details }) => {
                         }
                     </tbody>
                 </Table>
-                <Link className='btn btn-secondary' to="/student/add/employment">Add {details?.length > 0 ? 'More' : ''} Employment Details</Link>
+                <Link className='btn btn-secondary' to="/bimtian/add/employment">Add {details?.length > 0 ? 'More' : ''} Employment Details</Link>
                 {deleteConfirmationId && <DeleteConfirmation data={deleteConfirmationId} handleDelete={handleDelete} setDelete={setDeleteConfirmation} />}
                 <EditEmploymentModal
                     show={Object.keys(employmentEditModal).length > 0}

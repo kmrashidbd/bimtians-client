@@ -18,12 +18,12 @@ const Home = () => {
         },
         {
             img: Jetty,
-            title: 'BIMT Jetty',
+            title: 'BIMT Gate',
             alt: 'jetty'
         },
         {
             img: Rainy,
-            title: 'BIMT Rainy',
+            title: 'BIMT Rainy Time',
             alt: 'rainy'
         }
     ];
