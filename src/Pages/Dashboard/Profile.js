@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import Figure from 'react-bootstrap/Figure';
+import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -56,6 +57,9 @@ const Profile = () => {
                         <p>Email : {singleStudent?.email} <span className={`px-2 rounded text-light ${singleStudent?.shareContact === "yes" ? 'bg-success' : "bg-danger"}`}>{singleStudent?.shareContact === "yes" ? "Shared" : "Hide"}</span></p>
                         <p>Mobile : {singleStudent?.mobile} <span className={`px-2 rounded text-light ${singleStudent?.shareContact === "yes" ? 'bg-success' : "bg-danger"}`}>{singleStudent?.shareContact === "yes" ? "Shared" : "Hide"}</span></p>
                         <p>Status : <span className={`${singleStudent?.status === "pending" ? 'text-danger' : 'text-success text-capitalize fw-bold'}`}>{singleStudent?.status}</span> <br />{singleStudent?.status === "pending" && <span className="text-danger">Your Profile is Deactive! We Will Approve You Shortly......</span>}</p>
+                        <Form.Group className='d-flex'>
+                            <Form.Label>Profile Link:</Form.Label> <Form.Control type="text" value={`${window.location.protocol}//${window.location.hostname}/bimtian/${singleStudent?.name.replace(/\s+/g, "-")}?${loggedInStudent?.id}`} readOnly/>
+                        </Form.Group>
                     </div>
                     <div className='d-flex flex-row flex-lg-column gap-2 justify-content-lg-center'>
                         <button onClick={() => setBasicEditModal(true)} className='btn btn-info'>Edit</button>

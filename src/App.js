@@ -9,8 +9,11 @@ import Chat from "./Pages/Chat/Chat";
 import AllStudent from "./Pages/Dashboard/AllStudent";
 import ChangePassword from "./Pages/Dashboard/ChangePassword";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import JobListAdmin from "./Pages/Dashboard/JobListAdmin";
 import PostJob from "./Pages/Dashboard/PostJob";
+import PostedJobs from "./Pages/Dashboard/PostedJobs";
 import Profile from "./Pages/Dashboard/Profile";
+import SearchBloodGroup from "./Pages/Dashboard/SearchBloodGroup";
 import SearchStudent from "./Pages/Dashboard/SearchStudent";
 import AddAcademic from "./Pages/DetailsAdding/AddAcademic";
 import AddEmergency from "./Pages/DetailsAdding/AddEmergency";
@@ -34,12 +37,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/bimtian/:slug" element={<SingleStudent />} />
+        <Route path="/blood-donation" element={<SearchBloodGroup />} />
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Profile />} />
-          <Route path="/dashboard/change-password" element={<ChangePassword />} />
-          <Route path="/dashboard/bimtian/search" element={<RequireActive><SearchStudent /></RequireActive>} />
-          <Route path="/dashboard/bimtian/all" element={<RequireAdmin><AllStudent /></RequireAdmin>} />
-          <Route path="/dashboard/bimtian/post-job" element={<PostJob />} />
+          <Route path="change-password" element={<ChangePassword />} />
+          <Route path="bimtian/search" element={<RequireActive><SearchStudent /></RequireActive>} />
+          <Route path="bimtian/all" element={<RequireAdmin><AllStudent /></RequireAdmin>} />
+          <Route path="job-post-info" element={<RequireAdmin><JobListAdmin /></RequireAdmin>} />
+          <Route path="post-job" element={<RequireActive><PostJob /></RequireActive>} />
+          <Route path="my-job-list" element={<RequireActive><PostedJobs /></RequireActive>} />
         </Route>
         {/* details adding */}
         <Route path="/bimtian/add/personal" element={<RequireAuth><AddPersonal /></RequireAuth>} />

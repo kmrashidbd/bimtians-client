@@ -32,13 +32,19 @@ const Header = () => {
         <header>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <LinkContainer to='/'><Navbar.Brand><img src={Bimtian} className='rounded' width='150px' alt='BIMTian'/></Navbar.Brand></LinkContainer>
+                    <LinkContainer to='/'><Navbar.Brand><img src={Bimtian} className='rounded' width='150px' alt='BIMTian' /></Navbar.Brand></LinkContainer>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className='me-auto'></Nav>
                         <Nav>
                             {token ? <>
                                 <LinkContainer to='/message'><Nav.Link>Messaging</Nav.Link></LinkContainer>
+                                <LinkContainer to='/blood-donation'><Nav.Link>Blood Donation</Nav.Link></LinkContainer>
+                                {
+                                    loggedInStudent?.status === 'active' && <>
+                                        <LinkContainer to='/job/all'><Nav.Link>Job Query</Nav.Link></LinkContainer>
+                                    </>
+                                }
                                 <NavDropdown title="Dashboard" id="collasible-nav-dropdown">
                                     <LinkContainer to='/dashboard'>
                                         <NavDropdown.Item>Profile</NavDropdown.Item>
@@ -48,6 +54,13 @@ const Header = () => {
                                             <LinkContainer to='/dashboard/bimtian/search'>
                                                 <NavDropdown.Item>Search BIMTian</NavDropdown.Item>
                                             </LinkContainer>
+                                            <LinkContainer to='/dashboard/post-job'>
+                                                <NavDropdown.Item>Post A Job</NavDropdown.Item>
+                                            </LinkContainer>
+                                            <LinkContainer to='/dashboard/my-job-list'>
+                                                <NavDropdown.Item>My Job List</NavDropdown.Item>
+                                            </LinkContainer>
+
                                         </> : ''
                                     }
                                     {
@@ -55,12 +68,19 @@ const Header = () => {
                                             <LinkContainer to='/dashboard/bimtian/all'>
                                                 <NavDropdown.Item>BIMTian List</NavDropdown.Item>
                                             </LinkContainer>
+                                            <LinkContainer to='/dashboard/job-post-info'>
+                                                <NavDropdown.Item>Job List</NavDropdown.Item>
+                                            </LinkContainer>
                                         </> : ''
                                     }
                                     <LinkContainer to='/dashboard/change-password'>
                                         <NavDropdown.Item>Change Password</NavDropdown.Item>
                                     </LinkContainer>
                                 </NavDropdown>
+                                <LinkContainer to={{
+                                    pathname: "/bimtian/Kazi-Mamun",
+                                    search: "?c4184409-9347-477f-ae18-4ad00dc0884e",
+                                }}><Nav.Link>Developer Profile</Nav.Link></LinkContainer>
                                 <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>
                             </> : <>
                                 <LinkContainer to='/login'><Nav.Link>Login</Nav.Link></LinkContainer>

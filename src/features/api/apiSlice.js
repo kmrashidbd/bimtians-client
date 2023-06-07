@@ -31,4 +31,20 @@ export const studentApiSlice = createApi({
         },        
     }),
     endpoints: (builder) => ({})
-})
+});
+
+export const jobApiSlice = createApi({
+    reducerPath: 'jobApiSlice',
+    tagTypes:['job'],
+    baseQuery: fetchBaseQuery({
+        baseUrl: `${host}/api/v1`,
+        prepareHeaders: (headers, { getState }) => {
+            const token = getState().auth.token;
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`);
+            }
+            return headers;
+        },        
+    }),
+    endpoints: (builder) => ({})
+});

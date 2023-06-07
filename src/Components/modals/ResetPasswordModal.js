@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { toast } from 'react-toastify';
-import { host } from '../Shared/host';
 import Loading from '../Shared/Loading';
+import { host } from '../Shared/host';
 
 
 const ResetPasswordModal = (props) => {
@@ -15,8 +15,15 @@ const ResetPasswordModal = (props) => {
     const handleSubmit = async (e) => {
         setIsLoading(true)
         e.preventDefault();
+        const data = {
+            text: `
+                Thanks for using BIMTian.
+                Here is password reset link.
+                please click at Link and reset your password
+            `
+        }
         try {
-            const res = await axios.post(`${host}/api/v1/auth/forgotPassword/${email}`);
+            const res = await axios.post(`${host}/api/v1/auth/forgotPassword/${email}`, data);
             if (res.status === 200) {
                 setIsLoading(false)
                 setMessage(true);
