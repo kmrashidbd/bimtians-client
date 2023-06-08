@@ -32,6 +32,9 @@ const authApi = apiSlice.injectEndpoints({
                 method: 'PUT',
                 body: {password: data.password}
             })
+        }),
+        getAdmins: builder.query({
+            query: ()=>'/auth/adminPanel'
         })
     })
 });
@@ -41,5 +44,6 @@ export const {
     useLoginStudentMutation,
     useLoggedInStudentQuery,
     useChangePasswordMutation,
-    useResetPasswordMutation
+    useResetPasswordMutation,
+    useGetAdminsQuery
 } = authApi;

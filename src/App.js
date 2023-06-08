@@ -5,6 +5,7 @@ import RequireAdmin from "./Components/Auth/RequireAdmin";
 import RequireAuth from "./Components/Auth/RequireAuth";
 import Footer from "./Components/Shared/Footer";
 import Header from "./Components/Shared/Header";
+import About from "./Pages/About/About";
 import Chat from "./Pages/Chat/Chat";
 import AllStudent from "./Pages/Dashboard/AllStudent";
 import ChangePassword from "./Pages/Dashboard/ChangePassword";
@@ -34,6 +35,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/bimtian/:slug" element={<SingleStudent />} />

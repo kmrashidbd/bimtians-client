@@ -85,6 +85,7 @@ const Header = () => {
                             </> : <>
                                 <LinkContainer to='/login'><Nav.Link>Login</Nav.Link></LinkContainer>
                                 <LinkContainer to='/register'><Nav.Link>Register</Nav.Link></LinkContainer>
+                                <LinkContainer to='/about'><Nav.Link>About</Nav.Link></LinkContainer>
                             </>}
                         </Nav>
                     </Navbar.Collapse>
