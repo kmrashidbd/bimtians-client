@@ -7,6 +7,7 @@ import Footer from "./Components/Shared/Footer";
 import Header from "./Components/Shared/Header";
 import About from "./Pages/About/About";
 import Chat from "./Pages/Chat/Chat";
+import Contact from "./Pages/Contact/Contact";
 import AllStudent from "./Pages/Dashboard/AllStudent";
 import ChangePassword from "./Pages/Dashboard/ChangePassword";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -28,18 +29,21 @@ import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import ShowJob from "./Pages/ShowJob/ShowJob";
 import SingleJob from "./Pages/ShowJob/SingleJob";
 import SingleStudent from "./Pages/SingleStudent/SingleStudent";
+import Calling from "./Pages/Calling/Calling";
 
 function App() {
   return (
-    <div className="container">
+    <div className="container" style={{scrollBehavior: "smooth"}}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/bimtian/:slug" element={<SingleStudent />} />
         <Route path="/blood-donation" element={<SearchBloodGroup />} />
+        <Route path="/calling/:id" element={<RequireAuth><Calling /></RequireAuth>} />
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<Profile />} />
           <Route path="change-password" element={<ChangePassword />} />

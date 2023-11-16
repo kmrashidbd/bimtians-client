@@ -35,6 +35,13 @@ const authApi = apiSlice.injectEndpoints({
         }),
         getAdmins: builder.query({
             query: ()=>'/auth/adminPanel'
+        }),
+        sendMessage: builder.mutation({
+            query: (data) => ({
+                url: '/auth/sendMessage',
+                method: 'POST',
+                body: data
+            })
         })
     })
 });
@@ -45,5 +52,6 @@ export const {
     useLoggedInStudentQuery,
     useChangePasswordMutation,
     useResetPasswordMutation,
-    useGetAdminsQuery
+    useGetAdminsQuery,
+    useSendMessageMutation
 } = authApi;

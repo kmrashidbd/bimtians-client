@@ -48,3 +48,19 @@ export const jobApiSlice = createApi({
     }),
     endpoints: (builder) => ({})
 });
+
+export const chatApiSlice = createApi({
+    reducerPath: 'chatApiSlice',
+    tagTypes:['chat', "chatMessage", "chatUser", "notification"],
+    baseQuery: fetchBaseQuery({
+        baseUrl: `${host}/api/v1/chat`,
+        prepareHeaders: (headers, { getState }) => {
+            const token = getState().auth.token;
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`);
+            }
+            return headers;
+        },        
+    }),
+    endpoints: (builder) => ({})
+});
